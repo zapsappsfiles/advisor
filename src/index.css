@@ -1,13 +1,107 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply font-custom text-gray-900 leading-relaxed bg-white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  html {
+    @apply scroll-smooth;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .btn-primary {
+    @apply bg-gray-900 hover:bg-gray-800 text-white font-medium py-3 px-6 sm:py-4 sm:px-8 border border-gray-900 hover:border-gray-800 transition-colors duration-300 text-sm sm:text-base;
+  }
+  
+  .btn-secondary {
+    @apply border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white font-medium py-3 px-6 sm:py-4 sm:px-8 transition-colors duration-300 text-sm sm:text-base;
+  }
+  
+  .section-padding {
+    @apply py-12 sm:py-16 lg:py-24 px-4 sm:px-6;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  .card-sharp {
+    @apply bg-white border border-gray-200 transition-colors duration-300 hover:border-gray-400;
+  }
+  
+  .glass-sharp {
+    @apply backdrop-blur-sm bg-white/95 border border-gray-200;
+  }
+
+  .image-sharp {
+    @apply overflow-hidden bg-gray-100;
+  }
+
+  .image-sharp img {
+    @apply w-full h-full object-cover transition-transform duration-500 hover:scale-105;
+  }
+
+  /* Sharp dividers */
+  .divider-sharp {
+    @apply border-t border-gray-200;
+  }
+
+  /* Sharp inputs */
+  .input-sharp {
+    @apply border border-gray-300 focus:border-gray-900 focus:outline-none py-2 px-3 sm:py-3 sm:px-4 transition-colors duration-300 text-sm sm:text-base;
+  }
+
+  /* Navigation styles */
+  .nav-link {
+    @apply relative text-gray-700 hover:text-gray-900 transition-colors duration-300;
+  }
+
+  .nav-link::after {
+    @apply absolute bottom-0 left-0 w-0 h-px bg-gray-900 transition-all duration-300;
+    content: '';
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    @apply w-full;
+  }
+
+  /* Mobile-specific utilities */
+  @media (max-width: 640px) {
+    .section-padding {
+      @apply py-8 px-4;
+    }
+    
+    .container-custom {
+      @apply px-4;
+    }
+  }
+
+  /* Text responsive utilities */
+  .text-responsive-xl {
+    @apply text-2xl sm:text-3xl lg:text-4xl xl:text-5xl;
+  }
+  
+  .text-responsive-lg {
+    @apply text-xl sm:text-2xl lg:text-3xl;
+  }
+  
+  .text-responsive-md {
+    @apply text-lg sm:text-xl lg:text-2xl;
+  }
+  
+  .text-responsive-sm {
+    @apply text-base sm:text-lg;
+  }
 }

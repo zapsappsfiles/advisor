@@ -1,70 +1,162 @@
-# Getting Started with Create React App
+# Nexus Bridge Advisors Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive React website for Nexus Bridge Advisors - a Syria-based consulting firm serving international businesses.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+- **Modern Design**: Clean, professional design with white, red, and green color scheme
+- **Responsive**: Mobile-first design that works on all devices
+- **Animations**: Smooth animations using Framer Motion and GSAP
+- **Interactive**: Hover effects and interactive elements throughout
+- **Contact Form**: Integrated with Formspree for form handling
+- **Fast**: Built with React and optimized for performance
 
-### `npm start`
+## 🛠️ Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React 18** - Frontend framework
+- **Tailwind CSS 3.4.15** - Utility-first CSS framework
+- **Framer Motion** - Animation library
+- **GSAP** - Advanced animations
+- **React Router** - Client-side routing
+- **Formspree** - Form handling
+- **Heroicons** - Icon library
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📦 Installation
 
-### `npm test`
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd nexus-bridge-advisors
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Install dependencies:
+```bash
+npm install
+```
 
-### `npm run build`
+3. Start the development server:
+```bash
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🎨 Design System
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Colors
+- **Primary (Red)**: #ef4444 (red-500)
+- **Accent (Green)**: #22c55e (green-500)
+- **Background**: White with subtle gray gradients
+- **Text**: Gray-900 for headings, Gray-600 for body text
 
-### `npm run eject`
+### Typography
+- **Font**: Inter (Google Fonts)
+- **Headings**: Bold, large sizes with gradient text effects
+- **Body**: Regular weight, comfortable line height
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Components
+- **Buttons**: Rounded-full with hover animations
+- **Cards**: Rounded-2xl with subtle shadows and hover effects
+- **Sections**: Generous padding with background elements
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📱 Pages
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. **Home** - Hero, About Preview, Services, Team Preview, Insights, Contact CTA
+2. **About** - Company information and team details
+3. **Services** - Detailed service offerings
+4. **Team** - Team member profiles
+5. **Contact** - Contact form and company information
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🔧 Configuration
 
-## Learn More
+### Formspree Setup
+1. Sign up at [Formspree.io](https://formspree.io)
+2. Create a new form
+3. Replace `YOUR_FORMSPREE_ID` in `src/pages/Contact.js` with your form ID
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Customization
+- Colors can be modified in `tailwind.config.js`
+- Animations can be adjusted in the component files
+- Content can be updated in the respective component files
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🚀 Deployment
 
-### Code Splitting
+### Build for Production
+```bash
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Deploy to Netlify
+1. Connect your GitHub repository to Netlify
+2. Set build command: `npm run build`
+3. Set publish directory: `build`
+4. Deploy!
 
-### Analyzing the Bundle Size
+### Deploy to Vercel
+```bash
+npm install -g vercel
+vercel
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📁 Project Structure
 
-### Making a Progressive Web App
+```
+src/
+├── components/
+│   ├── layout/
+│   │   ├── Navbar.js
+│   │   └── Footer.js
+│   └── sections/
+│       ├── Hero.js
+│       ├── AboutPreview.js
+│       ├── ServicesSection.js
+│       ├── TeamPreview.js
+│       ├── InsightsSection.js
+│       └── ContactCTA.js
+├── pages/
+│   ├── Home.js
+│   ├── About.js
+│   ├── Services.js
+│   ├── Team.js
+│   └── Contact.js
+├── App.js
+├── index.js
+└── index.css
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🎯 Key Features
 
-### Advanced Configuration
+### Animations
+- **Framer Motion**: Page transitions, scroll animations, hover effects
+- **GSAP**: Complex animations in Hero section
+- **CSS Transitions**: Smooth hover states and interactions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Responsive Design
+- **Mobile-first**: Designed for mobile devices first
+- **Breakpoints**: sm, md, lg, xl breakpoints for different screen sizes
+- **Flexible Layouts**: Grid and flexbox layouts that adapt to screen size
 
-### Deployment
+### Performance
+- **Code Splitting**: React lazy loading for optimal performance
+- **Optimized Images**: Placeholder images with proper sizing
+- **Minimal Dependencies**: Only essential libraries included
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🤝 Contributing
 
-### `npm run build` fails to minify
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature-name`
+3. Commit your changes: `git commit -am 'Add feature'`
+4. Push to the branch: `git push origin feature-name`
+5. Submit a pull request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 📞 Support
+
+For support, email info@nexusbridgeadvisors.com or create an issue in this repository.
+
+---
+
+Built with ❤️ for Nexus Bridge Advisors
