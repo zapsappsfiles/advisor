@@ -160,10 +160,11 @@ const Team = () => {
                   className="card-sharp overflow-hidden"
                 >
                   <div className="grid lg:grid-cols-3 gap-8">
-                    <div className="image-sharp aspect-[4/5] lg:aspect-auto">
+                    <div className="relative aspect-square overflow-hidden rounded-full border-4 border-gray-100 shadow-lg mx-auto lg:mx-0 w-48 h-48 lg:w-64 lg:h-64">
                       <img 
                         src={member.image}
                         alt={`${member.name} - ${member.title}`}
+                        className="w-full h-full object-cover"
                       />
                     </div>
 

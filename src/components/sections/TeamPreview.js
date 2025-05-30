@@ -30,21 +30,26 @@ const TeamPreview = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        duration: 0.8
+        staggerChildren: 0.2
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { 
-        duration: 0.8,
-        ease: "easeOut"
-      }
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  };
+
+  const imageVariants = {
+    hidden: { scale: 0.8, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: { duration: 0.5, ease: "easeOut" }
     }
   };
 
@@ -53,10 +58,10 @@ const TeamPreview = () => {
       <div className="container-custom">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-20"
         >
           <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
@@ -73,23 +78,30 @@ const TeamPreview = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20"
         >
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.name}
               variants={itemVariants}
-              className="card-sharp overflow-hidden"
+              className="text-center"
             >
-              <div className="image-sharp aspect-square">
-                <img 
-                  src={member.image}
-                  alt={`${member.name} - ${member.title}`}
-                />
-              </div>
+              <motion.div 
+                className="relative w-48 h-48 mx-auto mb-6"
+                variants={imageVariants}
+              >
+                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-50 to-gray-100"></div>
+                <div className="absolute inset-2 overflow-hidden rounded-full border-4 border-white shadow-lg">
+                  <img 
+                    src={member.image}
+                    alt={`${member.name} - ${member.title}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </motion.div>
               
-              <div className="p-8 text-center">
+              <motion.div variants={itemVariants}>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
                   {member.name}
                 </h3>
@@ -101,17 +113,17 @@ const TeamPreview = () => {
                 <p className="text-gray-600 leading-relaxed font-light">
                   {member.background}
                 </p>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </motion.div>
 
         {/* CTA Section */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
           className="text-center"
         >
           <div className="card-sharp p-12 lg:p-16 max-w-4xl mx-auto">
