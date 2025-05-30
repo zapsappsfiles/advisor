@@ -18,13 +18,17 @@ const Navbar = () => {
   }, []);
 
   const scrollToInsights = () => {
-    const insightsSection = document.getElementById('insights');
-    if (insightsSection) {
-      insightsSection.scrollIntoView({ behavior: 'smooth' });
-    } else if (location.pathname !== '/') {
-      window.location.href = '/#insights';
-    }
-    setIsOpen(false);
+    setIsOpen(false); // Close mobile menu first
+    setTimeout(() => {
+      const insightsSection = document.getElementById('insights');
+      if (insightsSection) {
+        const yOffset = -80; // Offset for navbar height
+        const y = insightsSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      } else if (location.pathname !== '/') {
+        window.location.href = '/#insights';
+      }
+    }, 100); // Small delay to ensure mobile menu closes first
   };
 
   const navigation = [
@@ -86,8 +90,8 @@ const Navbar = () => {
                     to={item.href}
                     className={`text-sm font-medium transition-colors ${
                       isActive(item.href)
-                        ? 'text-white'
-                        : 'text-white/80 hover:text-white'
+                        ? 'text-gray-900'
+                        : 'text-gray-700 hover:text-gray-900'
                     }`}
                   >
                     {item.name}
@@ -95,7 +99,7 @@ const Navbar = () => {
                 ) : (
                   <button
                     onClick={item.onClick}
-                    className="text-sm font-medium text-white/80 hover:text-white transition-colors"
+                    className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
                   >
                     {item.name}
                   </button>
@@ -113,9 +117,9 @@ const Navbar = () => {
             className="lg:hidden p-2"
           >
             {isOpen ? (
-              <XMarkIcon className="h-5 w-5 text-white" />
+              <XMarkIcon className="h-5 w-5 text-gray-900" />
             ) : (
-              <Bars3Icon className="h-5 w-5 text-white" />
+              <Bars3Icon className="h-5 w-5 text-gray-900" />
             )}
           </motion.button>
         </div>
@@ -129,7 +133,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden backdrop-blur-md bg-white/10 border-t border-white/10"
+            className="lg:hidden backdrop-blur-md bg-white/95 border-t border-gray-100"
           >
             <div className="container-custom px-4 sm:px-6 py-4">
               <div className="flex flex-col space-y-1">
@@ -146,8 +150,8 @@ const Navbar = () => {
                         onClick={() => setIsOpen(false)}
                         className={`block px-3 py-2 text-sm font-medium transition-colors ${
                           isActive(item.href)
-                            ? 'text-white bg-white/10'
-                            : 'text-white/80 hover:text-white hover:bg-white/10'
+                            ? 'text-gray-900 bg-gray-50'
+                            : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'
                         }`}
                       >
                         {item.name}
@@ -155,7 +159,7 @@ const Navbar = () => {
                     ) : (
                       <button
                         onClick={item.onClick}
-                        className="block w-full text-left px-3 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+                        className="block w-full text-left px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition-colors"
                       >
                         {item.name}
                       </button>

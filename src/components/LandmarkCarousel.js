@@ -66,8 +66,8 @@ const LandmarkCarousel = () => {
             className="w-full h-full object-cover"
           />
           
-          {/* Landmark Info */}
-          <div className="absolute bottom-8 right-8 text-right">
+          {/* Landmark Info - Hidden on mobile */}
+          <div className="absolute bottom-8 right-8 text-right hidden md:block">
             <motion.div
               variants={infoVariants}
               initial="initial"
