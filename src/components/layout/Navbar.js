@@ -28,7 +28,7 @@ const Navbar = () => {
       } else if (location.pathname !== '/') {
         window.location.href = '/#insights';
       }
-    }, 100);
+    }, 100); // Small delay to ensure mobile menu closes first
   };
 
   const navigation = [
@@ -53,7 +53,7 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed w-full z-50 backdrop-blur-md ${isScrolled ? 'bg-white/80' : 'bg-white/50'}`}
+      className="fixed w-full z-50 backdrop-blur-md bg-white/10"
     >
       <div className="container-custom px-4 sm:px-6">
         <div className="flex justify-between items-center py-3 sm:py-4">
@@ -91,7 +91,7 @@ const Navbar = () => {
                     className={`text-sm font-medium transition-colors ${
                       isActive(item.href)
                         ? 'text-gray-900'
-                        : 'text-gray-800 hover:text-gray-900'
+                        : 'text-gray-700 hover:text-gray-900'
                     }`}
                   >
                     {item.name}
@@ -99,7 +99,7 @@ const Navbar = () => {
                 ) : (
                   <button
                     onClick={item.onClick}
-                    className="text-sm font-medium text-gray-800 hover:text-gray-900 transition-colors"
+                    className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
                   >
                     {item.name}
                   </button>
@@ -133,7 +133,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-white shadow-lg border-t border-gray-100"
+            className="lg:hidden backdrop-blur-md bg-white/95 border-t border-gray-100"
           >
             <div className="container-custom px-4 sm:px-6 py-4">
               <div className="flex flex-col space-y-1">
@@ -151,7 +151,7 @@ const Navbar = () => {
                         className={`block px-3 py-2 text-sm font-medium transition-colors ${
                           isActive(item.href)
                             ? 'text-gray-900 bg-gray-50'
-                            : 'text-gray-800 hover:text-gray-900 hover:bg-gray-50'
+                            : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'
                         }`}
                       >
                         {item.name}
@@ -159,7 +159,7 @@ const Navbar = () => {
                     ) : (
                       <button
                         onClick={item.onClick}
-                        className="block w-full text-left px-3 py-2 text-sm font-medium text-gray-800 hover:text-gray-900 hover:bg-gray-50 transition-colors"
+                        className="block w-full text-left px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition-colors"
                       >
                         {item.name}
                       </button>
